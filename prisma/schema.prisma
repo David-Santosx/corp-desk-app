@@ -20,7 +20,10 @@ model User {
   sessions      Session[]
   accounts      Account[]
 
-  role       String?
+  tickets  Ticket[]
+  comments Comment[]
+
+  role       String? // e.g., "user", "admin", "tech"
   banned     Boolean?
   banReason  String?
   banExpires DateTime?
@@ -74,4 +77,46 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model Ticket {
+  id          String    @id
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  status      String // e.g., "open", "closed", "in-progress"
+  priority    String? // e.g., "low", "medium", "high"
+  createdAt   DateTime
+  updatedAt   DateTime
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  comments Comment[]
+
+  @@map("ticket")
+}
+
+model Category {
+  id        String   @id
+  name      String
+  createdAt DateTime
+  updatedAt DateTime
+
+  tickets Ticket[]
+
+  @@map("category")
+}
+
+model Comment {
+  id        String   @id
+  ticketId  String
+  ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content   String
+  createdAt DateTime
+  updatedAt DateTime
+
+  @@map("comment")
 }
