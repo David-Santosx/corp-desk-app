@@ -91,6 +91,7 @@ model Ticket {
   updatedAt   DateTime
   categoryId  String?
   category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  attachments  String[]
 
   comments Comment[]
 
