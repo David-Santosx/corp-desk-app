@@ -11,6 +11,9 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
     },
+    session: {
+        expiresIn: 60 * 2 * 60, // 7200 segundos = 2 horas
+    },
     plugins: [
         admin(),
         nextCookies()
