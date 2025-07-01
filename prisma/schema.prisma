@@ -80,7 +80,7 @@ model Verification {
 }
 
 model Ticket {
-  id          String    @id
+  id          String    @id @default(uuid())
   userId      String
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   title       String
@@ -99,7 +99,7 @@ model Ticket {
 }
 
 model Category {
-  id        String   @id
+  id        String   @id @default(uuid())
   name      String
   createdAt DateTime
   updatedAt DateTime
@@ -110,7 +110,7 @@ model Category {
 }
 
 model Comment {
-  id        String   @id
+  id        String   @id @default(uuid())
   ticketId  String
   ticket    Ticket   @relation(fields: [ticketId], references: [id], onDelete: Cascade)
   userId    String
