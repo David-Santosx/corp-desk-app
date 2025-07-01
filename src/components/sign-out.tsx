@@ -10,7 +10,7 @@ export function useSignOut() {
         fetchOptions: {
           onSuccess: () => {
             console.log("Sign out successful");
-            router.push("/auth/login");
+            router.push("/auth");
           },
           onError: (error) => {
             console.error("Error during sign out:", error);
