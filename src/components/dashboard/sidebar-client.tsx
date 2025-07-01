@@ -50,6 +50,7 @@ import {
 import { usePathname } from "next/navigation";
 import { SignOutButton } from "../sign-out-button";
 import { Button } from "../ui/button";
+import { Label } from "../ui/label";
 
 const icons = {
   Ticket,
@@ -82,7 +83,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
 
   return (
     <Sidebar className="flex flex-col min-h-screen text-sm">
-      <SidebarHeader className="flex flex-col items-center py-8">
+      <SidebarHeader className="flex flex-col items-center pt-8">
         <Image
           src="/corp-desk-logo.svg"
           alt="Corp Desk Logo"
@@ -91,17 +92,18 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
           quality={100}
           priority
         />
-        <span className="mt-4 text-xs text-white/60 text-center">
-          Você está logado como{" "}
-          <span className="font-semibold text-primary">
+        <Label className="mt-4 text-xs text-white/60 text-center">
+          Você está logado como
+          <Label className="underline text-white/90">
             {role === "admin"
               ? "administrador."
               : role === "tech"
               ? "técnico."
               : "colaborador."}
-          </span>
-        </span>
+          </Label>
+        </Label>
       </SidebarHeader>
+      <Separator className="my-4" />
       <SidebarMenu className="flex-1 px-2">
         {items.map((group, idx) => (
           <Collapsible
@@ -136,7 +138,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                           }
                         `}
                       >
-                        {Icon && <Icon className="w-4 h-4 text-primary" />}
+                        {Icon && <Icon className="w-4 h-4" />}
                         <span>{item.name}</span>
                       </Link>
                     </SidebarMenuItem>
@@ -191,7 +193,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                   className="flex items-center gap-3 px-2 py-2 rounded hover:bg-[#29292e] transition-colors"
                   aria-label="Ir para perfil"
                 >
-                  <UserIcon className="w-5 h-5 text-primary" />
+                  <UserIcon className="w-5 h-5" />
                   <span>Perfil</span>
                 </Link>
               </DropdownMenuItem>
@@ -201,19 +203,8 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                   className="flex items-center gap-3 px-2 py-2 rounded hover:bg-[#29292e] transition-colors"
                   aria-label="Ir para configurações"
                 >
-                  <SettingsIcon className="w-5 h-5 text-primary" />
+                  <SettingsIcon className="w-5 h-5" />
                   <span>Configurações</span>
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem asChild>
-                <Link
-                  href="/auth"
-                  className="flex items-center gap-3 px-2 py-2 rounded hover:bg-[#29292e] transition-colors"
-                  aria-label="Alterar conta"
-                >
-                  <UserCog className="w-5 h-5 text-primary" />
-                  <span>Alterar Conta</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
