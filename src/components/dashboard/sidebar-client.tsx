@@ -93,7 +93,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
         />
         <span className="mt-4 text-xs text-white/60 text-center">
           Você está logado como{" "}
-          <span className="font-semibold text-[#ff6900]">
+          <span className="font-semibold text-primary">
             {role === "admin"
               ? "administrador."
               : role === "tech"
@@ -131,7 +131,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                           hover:bg-[#232326]
                           ${
                             isActive
-                              ? "bg-[#1a1a1d] border-l-4 border-[#ff6900] text-[#ff6900]"
+                              ? "bg-[#1a1a1d] border-l-4 border-primary text-primary"
                               : "text-white/90"
                           }
                         `}
@@ -167,7 +167,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                     alt="Avatar"
                   />
                   <AvatarFallback>
-                    <UserIcon className="w-5 h-5 text-[#ff6900]" />
+                    <UserIcon className="w-5 h-5 text-primary" />
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
@@ -178,7 +178,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                     {user.email}
                   </span>
                 </div>
-                <EllipsisVertical className="w-4 h-4 text-[#ff6900] ml-auto" />
+                <EllipsisVertical className="w-4 h-4 text-primary ml-auto" />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -191,7 +191,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                   className="flex items-center gap-3 px-2 py-2 rounded hover:bg-[#29292e] transition-colors"
                   aria-label="Ir para perfil"
                 >
-                  <UserIcon className="w-5 h-5 text-[#ff6900]" />
+                  <UserIcon className="w-5 h-5 text-primary" />
                   <span>Perfil</span>
                 </Link>
               </DropdownMenuItem>
@@ -201,7 +201,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                   className="flex items-center gap-3 px-2 py-2 rounded hover:bg-[#29292e] transition-colors"
                   aria-label="Ir para configurações"
                 >
-                  <SettingsIcon className="w-5 h-5 text-[#ff6900]" />
+                  <SettingsIcon className="w-5 h-5 text-primary" />
                   <span>Configurações</span>
                 </Link>
               </DropdownMenuItem>
@@ -212,7 +212,7 @@ export function DashboardSidebarClient({ user }: { user: UserProps }) {
                   className="flex items-center gap-3 px-2 py-2 rounded hover:bg-[#29292e] transition-colors"
                   aria-label="Alterar conta"
                 >
-                  <UserCog className="w-5 h-5 text-[#ff6900]" />
+                  <UserCog className="w-5 h-5 text-primary" />
                   <span>Alterar Conta</span>
                 </Link>
               </DropdownMenuItem>

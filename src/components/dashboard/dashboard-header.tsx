@@ -18,7 +18,7 @@ import Image from "next/image";
 
 export function DashboardHeader() {
   return (
-    <header className="w-full flex items-center justify-between px-8 py-4 border-b">
+    <header className="w-full flex items-center bg-secondary justify-between px-8 py-4 border-b">
       <div className="flex items-center gap-6">
         <Image
           src="/corp-desk-logo.svg"
@@ -61,9 +61,7 @@ export function DashboardHeader() {
             </HoverCardTrigger>
             <HoverCardContent className="w-64">
               <div className="flex flex-col gap-1">
-                <span className="font-semibold text-[#ff6900]">
-                  Documentação do Projeto
-                </span>
+                <span className="font-semibold">Documentação do Projeto</span>
                 <span className="text-xs text-white/80">
                   Veja como instalar, configurar e contribuir com o Corp Desk.
                   Inclui exemplos de uso, arquitetura e FAQ.
@@ -86,7 +84,7 @@ export function DashboardHeader() {
                 </Link>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>LinkedIn</TooltipContent>
+            <TooltipContent className="text-white">LinkedIn</TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -101,7 +99,7 @@ export function DashboardHeader() {
                 </Link>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Portfólio</TooltipContent>
+            <TooltipContent className="text-white">Portfólio</TooltipContent>
           </Tooltip>
         </nav>
       </TooltipProvider>
